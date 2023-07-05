@@ -6,7 +6,7 @@ export class SpecialAccount extends DioAccount {
         super(name, accountNumber, status)
     }
 
-    specialDeposit = (depositValue: number) =>{
+    specialDeposit = (depositValue: number):void =>{
         if(this.validateStatus()){
             this.balance += (depositValue + 10);
             console.log(`Você depositou R$ ${depositValue}, e ganhou mais R$ 10 de bonus`);

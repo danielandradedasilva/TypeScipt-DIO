@@ -9,6 +9,7 @@ export class CompanyAccount extends DioAccount {
     getLoan = (withdrawValue: number):void =>{
         if(this.validateStatus()){
             this.balance += withdrawValue;
+            console.log(`Emprestimo no valor de R$ ${withdrawValue}, realizado com sucesso!`)
         }else{
             this.validateStatus();
         }

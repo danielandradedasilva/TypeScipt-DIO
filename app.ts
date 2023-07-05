@@ -3,27 +3,66 @@ import { PeopleAccount } from "./class/PeopleAccount";
 import { SpecialAccount } from "./class/SpecialAccount";
 
 
+ // Criando instâncias para testes com contas ATIVAS
  
-const peopleAccount: PeopleAccount = new PeopleAccount(1,'Daniel',10,true);
+const peopleAccount: PeopleAccount = new PeopleAccount(1,'Daniel',1, true);
 
-//console.log(peopleAccount.getBalance())
-//peopleAccount.deposit(250)
-//console.log(peopleAccount.getBalance())
+const inactivePeopleAccount: PeopleAccount = new PeopleAccount(2, 'Gustavo', 13, false);
 
-//peopleAccount.withdraw(260);
+const companyAccount: CompanyAccount = new CompanyAccount('DIO', 1, true);
 
-//const companyAccount = new CompanyAccount('DIO',10,false);
+const inactiveCompanyAccount: CompanyAccount = new CompanyAccount('OID', 83, false);
 
-const special = new SpecialAccount('Conta Especial',1,true);
+const specialAccount = new SpecialAccount('Conta Especial',1,true);
 
-special.getBalance();
-special.specialDeposit(100);
-special.getBalance();
+const inactivespecialAccount: SpecialAccount = new SpecialAccount('Conta Especial II', 40, false);
 
-special.specialDeposit(100);
-special.getBalance();
+// Depósito
 
-special.withdraw(100);
-special.getBalance();
+peopleAccount.deposit(300);
+peopleAccount.getBalance();
 
-special.withdraw(121);
+console.log('-------------------------');
+
+companyAccount.deposit(150.20);
+companyAccount.getBalance();
+
+console.log('-------------------------');
+
+specialAccount.specialDeposit(102);
+specialAccount.getBalance();
+
+console.log('-------------------------');
+// Saque
+
+peopleAccount.withdraw(100);
+peopleAccount.getBalance();
+
+console.log('-------------------------');
+
+companyAccount.withdraw(50)
+peopleAccount.getBalance();
+
+console.log('-------------------------');
+
+specialAccount.withdraw(10);
+specialAccount.getBalance();
+
+console.log('-------------------------');
+// Saque com resposta de falha
+
+peopleAccount.withdraw(300);
+
+console.log('-------------------------');
+// Empréstimo
+
+companyAccount.getLoan(550);
+companyAccount.getBalance();
+
+console.log('-------------------------');
+
+// Conta inativas
+
+inactivePeopleAccount.deposit(100);
+inactiveCompanyAccount.deposit(50);
+inactivespecialAccount.deposit(20);

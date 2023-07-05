@@ -1,6 +1,6 @@
 export abstract class DioAccount {
 
-    private name: string
+    private readonly name: string
     private readonly accountNumber: number
     protected balance: number = 0
     private status: boolean
@@ -9,11 +9,6 @@ export abstract class DioAccount {
         this.name = name
         this.accountNumber = accountNumber
         this.status = status
-    }
-
-    setName = (name:string):void =>{
-        this.name = name;
-        console.log('Nome alterado com sucesso!');
     }
 
     getName = ():string =>{
@@ -32,13 +27,13 @@ export abstract class DioAccount {
             this.balance -= withdrawValue;
             console.log(`Voce sacou R$ ${withdrawValue}`);
         }else{
-            console.log(`saque indisponivel de R$ ${withdrawValue}, seu saldo é: R$ ${this.balance}`)
+            console.log(`saque indisponivel de R$ ${withdrawValue}, seu saldo é: R$ ${this.balance}`);
         }
     }
 
     getBalance = ():void =>{
         if(!this.validateStatus()){
-             this.validateStatus()
+             this.validateStatus();
         }else{
             console.log(`Seu saldo atual é de R$ ${this.balance}`);
         }
@@ -48,6 +43,6 @@ export abstract class DioAccount {
         if(this.status){
             return this.status;
         }
-        throw new Error('Conta Inválida')
+        throw new Error('Conta Inválida');
     }
 }

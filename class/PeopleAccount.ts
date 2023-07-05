@@ -5,6 +5,6 @@ export class PeopleAccount extends DioAccount {
 
         constructor(doc_id: number, name: string, accountNumber: number, status: boolean){
         super(name, accountNumber, status)
-        this.doc_id = doc_id 
+        this.doc_id = doc_id;
     }
 }
